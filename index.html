@@ -62,8 +62,13 @@
     justify-content: center;
   }
 
-  /* SVG logo mark — "io" monogram in cherry */
-  .logo-svg { width: 70px; height: 70px; }
+  /* Logo SVG depuis GitHub */
+    .logo-svg {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      display: block;
+   }
 
   .header-text { flex: 1; }
 
@@ -543,12 +548,13 @@
 <header>
   <div class="header-top"></div>
   <div class="header-inner">
-    <div class="logo-area">
-      <svg class="logo-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Stylised "io" monogram inspired by the uploaded logo -->
-        <text x="0" y="95" font-family="Georgia, serif" font-size="110" font-weight="bold" fill="#8B0435" letter-spacing="-8">io</text>
-      </svg>
-    </div>
+   <div class="logo-area">
+     <img
+       src="https://raw.githubusercontent.com/Inothebrand/Onboarding/refs/heads/main/Logo.svg"
+       alt="Logo Inès Ouajib"
+       class="logo-svg"
+     >
+   </div>
     <div class="header-text">
       <div class="header-eyebrow">Inès Ouajib · Community Management</div>
       <h1>Brief <em>Client</em></h1>
