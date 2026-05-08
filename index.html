@@ -1,589 +1,620 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Questionnaire Client — Inès Ouajib</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Mulish:wght@300;400;500;600&family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Oi font via @font-face from CDN -->
 <style>
   :root {
     --bg: #FAFAF8;
     --white: #FFFFFF;
     --ink: #111111;
     --cherry: #8B0435;
-    --cherry-light: rgba(139,4,53,0.08);
-    --cherry-mid: rgba(139,4,53,0.15);
+    --cherry-light: rgba(139,4,53,0.07);
+    --cherry-mid: rgba(139,4,53,0.13);
+    --cherry-border: rgba(139,4,53,0.18);
     --border: #E5E0DA;
     --border-dark: #C8C0B8;
     --muted: #7A746E;
     --muted-light: #A8A29C;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+- { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'Mulish', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    min-height: 100vh;
-    padding-bottom: 6rem;
-  }
+body {
+font-family: ‘Mulish’, sans-serif;
+background: var(–bg);
+color: var(–ink);
+min-height: 100vh;
+padding-bottom: 6rem;
+}
 
-  /* HEADER */
-  header {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
+/* ── HEADER ── */
+header {
+background: var(–white);
+border-bottom: 1px solid var(–border);
+padding: 0;
+position: relative;
+overflow: hidden;
+}
+.header-top {
+background: var(–cherry);
+height: 4px;
+width: 100%;
+}
+.header-inner {
+padding: 2.5rem 2rem 2rem;
+display: flex;
+align-items: flex-start;
+gap: 2rem;
+max-width: 780px;
+margin: 0 auto;
+}
+.logo-area {
+flex-shrink: 0;
+width: 70px;
+height: 70px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo-svg {
+width: 70px;
+height: 70px;
+object-fit: contain;
+display: block;
+}
+.header-text { flex: 1; }
+.header-eyebrow {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.6rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–cherry);
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
 
-  .header-top {
-    background: var(--cherry);
-    height: 4px;
-    width: 100%;
-  }
+/* BRIEF CLIENT */
+h1 {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 2.4rem;
+font-weight: 400;
+font-style: normal;
+line-height: 1.05;
+color: var(–ink);
+margin-bottom: 0.3rem;
+letter-spacing: -0.01em;
+text-transform: none;
+}
+h1 em {
+color: var(–cherry);
+font-style: italic;
+font-weight: 400;
+}
+.header-sub {
+font-family: ‘Mulish’, sans-serif;
+font-size: 0.76rem;
+color: var(–muted);
+font-weight: 300;
+margin-top: 0.5rem;
+letter-spacing: 0.02em;
+}
+.header-contact {
+margin-top: 0.7rem;
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: 0.3rem 0;
+font-family: ‘Mulish’, sans-serif;
+font-size: 0.74rem;
+font-weight: 400;
+}
+.header-contact a {
+color: var(–cherry);
+text-decoration: none;
+font-weight: 500;
+transition: opacity 0.2s;
+}
+.header-contact a:hover { opacity: 0.7; text-decoration: underline; }
+.contact-sep {
+color: var(–border-dark);
+margin: 0 0.5rem;
+font-size: 0.7rem;
+}
 
-  .header-inner {
-    padding: 2.5rem 2rem 2rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-    max-width: 780px;
-    margin: 0 auto;
-  }
+/* ── INFO BAR — fond cherry-light, inputs éditables ── */
+.info-bar-outer {
+background: var(–cherry-light);
+border-bottom: 1px solid var(–cherry-border);
+}
+.info-bar-inner {
+max-width: 780px;
+margin: 0 auto;
+padding: 1.1rem 2rem;
+display: flex;
+gap: 1.5rem;
+flex-wrap: wrap;
+}
+.info-field {
+display: flex;
+align-items: center;
+gap: 0.6rem;
+flex: 1;
+min-width: 150px;
+}
+.info-label {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.58rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–cherry);
+font-weight: 700;
+white-space: nowrap;
+flex-shrink: 0;
+}
+.info-input {
+flex: 1;
+background: transparent;
+border: none;
+border-bottom: 1px solid var(–cherry-border);
+padding: 0.2rem 0.4rem;
+font-family: ‘Mulish’, sans-serif;
+font-size: 0.8rem;
+color: var(–ink);
+font-weight: 400;
+outline: none;
+transition: border-color 0.2s;
+min-width: 80px;
+}
+.info-input::placeholder { color: var(–muted-light); font-style: italic; font-size: 0.75rem; }
+.info-input:focus { border-bottom-color: var(–cherry); }
 
-  .logo-area {
-    flex-shrink: 0;
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* ── PROGRESS ── */
+.progress-wrap-outer {
+background: var(–white);
+border-bottom: 1px solid var(–border);
+}
+.progress-wrap {
+max-width: 780px;
+margin: 0 auto;
+padding: 1rem 2rem;
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+.progress-track {
+flex: 1;
+height: 2px;
+background: var(–border);
+border-radius: 2px;
+overflow: hidden;
+}
+.progress-fill {
+height: 100%;
+background: var(–cherry);
+border-radius: 2px;
+transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+width: 0%;
+}
+.progress-pct {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.68rem;
+color: var(–cherry);
+font-weight: 600;
+min-width: 32px;
+text-align: right;
+letter-spacing: 0.05em;
+}
 
-  /* Logo SVG depuis GitHub */
-    .logo-svg {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      display: block;
-   }
+/* ── TABS ── */
+.tabs-outer { background: var(–white); border-bottom: 1px solid var(–border); }
+.tabs-inner {
+max-width: 780px;
+margin: 0 auto;
+display: flex;
+overflow-x: auto;
+scrollbar-width: none;
+padding: 0 1.5rem;
+}
+.tabs-inner::-webkit-scrollbar { display: none; }
+.tab {
+flex-shrink: 0;
+padding: 0.9rem 1.1rem;
+border: none;
+border-bottom: 2px solid transparent;
+background: transparent;
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.68rem;
+font-weight: 500;
+color: var(–muted);
+cursor: pointer;
+transition: all 0.2s;
+white-space: nowrap;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+margin-bottom: -1px;
+}
+.tab:hover { color: var(–ink); }
+.tab.active { color: var(–cherry); border-bottom-color: var(–cherry); font-weight: 700; }
+.tab.done { color: var(–muted-light); }
+.tab.done::before { content: ’✓ ’; color: #5A8A5E; }
 
-  .header-text { flex: 1; }
+/* ── MAIN ── */
+main {
+max-width: 780px;
+margin: 0 auto;
+padding: 2rem 1.5rem;
+}
+.section-block { display: none; animation: fadeIn 0.3s ease forwards; }
+.section-block.active { display: block; }
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
 
-  .header-eyebrow {
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--cherry);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
+/* ── SECTION HEADER ── */
+.sec-head {
+display: flex;
+align-items: flex-end;
+gap: 1.2rem;
+padding-bottom: 1.2rem;
+margin-bottom: 1.5rem;
+border-bottom: 1px solid var(–border);
+}
+.sec-num {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 3.5rem;
+line-height: 1;
+color: var(–cherry-mid);
+font-weight: 700;
+letter-spacing: -0.03em;
+flex-shrink: 0;
+}
+.sec-meta { flex: 1; }
+.sec-tag {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.58rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–cherry);
+font-weight: 600;
+margin-bottom: 0.3rem;
+}
+.sec-title {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 1.55rem;
+font-weight: 700;
+color: var(–ink);
+line-height: 1.15;
+text-transform: uppercase;
+letter-spacing: 0.03em;
+}
 
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 1.1;
-    color: var(--ink);
-    margin-bottom: 0.3rem;
-  }
-  h1 em {
-    font-style: italic;
-    color: var(--cherry);
-  }
+/* ── NOTE ── */
+.note {
+background: var(–cherry-light);
+border-left: 3px solid var(–cherry);
+border-radius: 0 8px 8px 0;
+padding: 0.9rem 1.2rem;
+margin-bottom: 1.5rem;
+font-size: 0.8rem;
+color: var(–ink);
+line-height: 1.65;
+font-weight: 400;
+}
+.note strong { color: var(–cherry); font-weight: 600; }
 
-  .header-sub {
-    font-size: 0.78rem;
-    color: var(--muted);
-    font-weight: 300;
-    margin-top: 0.5rem;
-  }
+/* ── QUESTION CARD ── */
+.question {
+background: var(–white);
+border: 1px solid var(–border);
+border-radius: 12px;
+padding: 1.3rem 1.5rem;
+margin-bottom: 0.9rem;
+transition: border-color 0.2s, box-shadow 0.2s;
+position: relative;
+overflow: hidden;
+}
+.question::before {
+content: ‘’;
+position: absolute;
+left: 0; top: 0; bottom: 0;
+width: 3px;
+background: var(–border);
+transition: background 0.2s;
+}
+.question:focus-within { border-color: var(–cherry-border); box-shadow: 0 2px 12px rgba(139,4,53,0.06); }
+.question:focus-within::before { background: var(–cherry); }
+.question.answered::before { background: #5A8A5E; }
 
-  /* QUICK INFO BAR */
-  .info-bar {
-    background: var(--ink);
-    padding: 1rem 2rem;
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .info-bar-inner {
-    max-width: 780px;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .info-field {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    flex: 1;
-    min-width: 140px;
-  }
-  .info-label {
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--cherry);
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .info-line {
-    flex: 1;
-    height: 1px;
-    background: rgba(255,255,255,0.15);
-    min-width: 60px;
-  }
+.q-row {
+display: flex;
+gap: 0.8rem;
+align-items: flex-start;
+margin-bottom: 0.8rem;
+}
+.q-num {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.6rem;
+font-weight: 700;
+color: var(–cherry);
+letter-spacing: 0.1em;
+min-width: 22px;
+padding-top: 3px;
+}
+.q-body { flex: 1; }
+.q-text {
+font-size: 0.88rem;
+font-weight: 600;
+color: var(–ink);
+line-height: 1.45;
+margin-bottom: 0.2rem;
+}
+.q-tag {
+display: inline-block;
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.52rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(–cherry);
+border: 1px solid var(–cherry-border);
+border-radius: 3px;
+padding: 0.1rem 0.35rem;
+margin-left: 0.4rem;
+vertical-align: middle;
+font-weight: 700;
+}
+.q-hint {
+font-size: 0.74rem;
+color: var(–muted);
+font-weight: 300;
+font-style: italic;
+line-height: 1.5;
+}
 
-  /* PROGRESS */
-  .progress-wrap {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    max-width: 780px;
-    margin: 0 auto;
-  }
-  .progress-wrap-outer {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-  }
-  .progress-track {
-    flex: 1;
-    height: 2px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    background: var(--cherry);
-    border-radius: 2px;
-    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
-    width: 0%;
-  }
-  .progress-pct {
-    font-size: 0.7rem;
-    color: var(--cherry);
-    font-weight: 600;
-    min-width: 32px;
-    text-align: right;
-    letter-spacing: 0.03em;
-  }
+/* ── CHIPS ── */
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.7rem; }
+.chip {
+padding: 0.28rem 0.85rem;
+border-radius: 20px;
+border: 1.5px solid var(–border-dark);
+font-family: ‘Mulish’, sans-serif;
+font-size: 0.74rem;
+color: var(–muted);
+cursor: pointer;
+transition: all 0.18s;
+font-weight: 400;
+user-select: none;
+}
+.chip:hover { border-color: var(–cherry); color: var(–cherry); }
+.chip.selected { background: var(–cherry); border-color: var(–cherry); color: white; font-weight: 500; }
 
-  /* NAV TABS */
-  .tabs-outer { background: var(--white); border-bottom: 1px solid var(--border); }
-  .tabs-inner {
-    max-width: 780px;
-    margin: 0 auto;
-    display: flex;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding: 0 1.5rem;
-    gap: 0;
-  }
-  .tabs-inner::-webkit-scrollbar { display: none; }
+/* ── TEXTAREA ── */
+textarea {
+width: 100%;
+background: var(–bg);
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 0.75rem 1rem;
+font-family: ‘Mulish’, sans-serif;
+font-size: 0.82rem;
+color: var(–ink);
+resize: none;
+outline: none;
+transition: border-color 0.2s;
+line-height: 1.6;
+font-weight: 300;
+}
+textarea::placeholder { color: var(–muted-light); font-style: italic; }
+textarea:focus { border-color: var(–cherry); }
 
-  .tab {
-    flex-shrink: 0;
-    padding: 0.9rem 1.1rem;
-    border: none;
-    border-bottom: 2px solid transparent;
-    background: transparent;
-    font-family: 'Mulish', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-    letter-spacing: 0.03em;
-    margin-bottom: -1px;
-  }
-  .tab:hover { color: var(--ink); }
-  .tab.active { color: var(--cherry); border-bottom-color: var(--cherry); font-weight: 600; }
-  .tab.done { color: var(--muted-light); }
-  .tab.done::before { content: '✓ '; color: #5A8A5E; }
+/* ── SCALE ── */
+.scale-group { margin-bottom: 0.8rem; }
+.scale-label { font-size: 0.76rem; font-weight: 500; color: var(–ink); margin-bottom: 0.35rem; }
+.scale-btns { display: flex; gap: 0.35rem; }
+.scale-btn {
+flex: 1;
+height: 34px;
+border-radius: 6px;
+border: 1.5px solid var(–border-dark);
+background: transparent;
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.8rem;
+color: var(–muted);
+cursor: pointer;
+transition: all 0.18s;
+font-weight: 500;
+}
+.scale-btn:hover { border-color: var(–cherry); color: var(–cherry); }
+.scale-btn.active { background: var(–cherry); border-color: var(–cherry); color: white; }
+.scale-ends { display: flex; justify-content: space-between; font-size: 0.64rem; color: var(–muted-light); font-style: italic; margin-top: 0.25rem; }
 
-  /* MAIN */
-  main {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
-  }
+/* ── FOOTER NAV ── */
+.nav-outer {
+position: fixed;
+bottom: 0; left: 0; right: 0;
+background: rgba(250,250,248,0.95);
+backdrop-filter: blur(10px);
+border-top: 1px solid var(–border);
+z-index: 100;
+}
+.nav-inner {
+max-width: 780px;
+margin: 0 auto;
+padding: 1rem 1.5rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.nav-btn {
+padding: 0.65rem 1.4rem;
+border-radius: 8px;
+border: 1.5px solid var(–border-dark);
+background: transparent;
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.72rem;
+font-weight: 600;
+color: var(–ink);
+cursor: pointer;
+transition: all 0.2s;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+}
+.nav-btn:hover:not(:disabled) { border-color: var(–cherry); color: var(–cherry); }
+.nav-btn:disabled { opacity: 0.3; pointer-events: none; }
+.nav-btn.primary { background: var(–cherry); border-color: var(–cherry); color: white; }
+.nav-btn.primary:hover { background: #6E0329; border-color: #6E0329; color: white; }
+.nav-mid { text-align: center; }
+.nav-sec {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.6rem;
+color: var(–cherry);
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-bottom: 0.15rem;
+}
+.nav-count { font-size: 0.7rem; color: var(–muted); font-family: ‘Mulish’, sans-serif; }
 
-  .section-block { display: none; animation: fadeIn 0.3s ease forwards; }
-  .section-block.active { display: block; }
+/* ── SUMMARY ── */
+#summary-view {
+display: none;
+max-width: 780px;
+margin: 0 auto;
+padding: 2rem 1.5rem;
+animation: fadeIn 0.4s ease forwards;
+}
+.sum-head {
+text-align: center;
+margin-bottom: 2.5rem;
+padding-bottom: 1.5rem;
+border-bottom: 1px solid var(–border);
+}
+.sum-head h2 {
+font-family: ‘League Spartan’, sans-serif;
+font-size: 2rem;
+font-weight: 700;
+color: var(–ink);
+margin-bottom: 0.4rem;
+text-transform: uppercase;
+letter-spacing: -0.01em;
+}
+.sum-head p { font-size: 0.8rem; color: var(–muted); font-weight: 300; }
+.sum-section {
+background: var(–white);
+border: 1px solid var(–border);
+border-radius: 12px;
+overflow: hidden;
+margin-bottom: 1rem;
+}
+.sum-sec-title {
+background: var(–cherry);
+color: white;
+padding: 0.7rem 1.2rem;
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.6rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+font-weight: 700;
+}
+.sum-row {
+display: flex;
+gap: 1rem;
+padding: 0.9rem 1.2rem;
+border-bottom: 1px solid var(–border);
+}
+.sum-row:last-child { border-bottom: none; }
+.sum-q { font-size: 0.78rem; color: var(–muted); flex: 1; line-height: 1.5; font-weight: 400; }
+.sum-a { font-size: 0.78rem; color: var(–ink); flex: 1.2; line-height: 1.6; font-weight: 300; font-style: italic; }
+.sum-a.empty { color: var(–muted-light); }
+.export-btn {
+display: block;
+width: 100%;
+margin-top: 1.5rem;
+padding: 1rem;
+background: var(–cherry);
+border: none;
+border-radius: 10px;
+color: white;
+font-family: ‘League Spartan’, sans-serif;
+font-size: 0.8rem;
+font-weight: 700;
+cursor: pointer;
+transition: background 0.2s;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+}
+.export-btn:hover { background: #6E0329; }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+@media (max-width: 500px) {
+h1 { font-size: 1.8rem; }
+.header-inner { gap: 1rem; }
+.sec-num { font-size: 2.8rem; }
+.nav-btn { padding: 0.55rem 0.9rem; font-size: 0.65rem; }
+.info-bar-inner { gap: 1rem; }
+}
 
-  /* SECTION HEADER */
-  .sec-head {
-    display: flex;
-    align-items: flex-end;
-    gap: 1.2rem;
-    padding-bottom: 1.2rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .sec-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4.5rem;
-    line-height: 1;
-    color: var(--cherry-mid);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    flex-shrink: 0;
-  }
-  .sec-meta { flex: 1; }
-  .sec-tag {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--cherry);
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-  .sec-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: var(--ink);
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-  }
-
-  /* NOTE */
-  .note {
-    background: var(--cherry-light);
-    border-left: 3px solid var(--cherry);
-    border-radius: 0 8px 8px 0;
-    padding: 0.9rem 1.2rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.8rem;
-    color: var(--ink);
-    line-height: 1.65;
-    font-weight: 400;
-  }
-  .note strong { color: var(--cherry); font-weight: 600; }
-
-  /* QUESTION CARD */
-  .question {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.3rem 1.5rem;
-    margin-bottom: 0.9rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .question::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--border);
-    transition: background 0.2s;
-  }
-  .question:focus-within { border-color: rgba(139,4,53,0.3); box-shadow: 0 2px 12px rgba(139,4,53,0.06); }
-  .question:focus-within::before { background: var(--cherry); }
-  .question.answered::before { background: #5A8A5E; }
-
-  .q-row {
-    display: flex;
-    gap: 0.8rem;
-    align-items: flex-start;
-    margin-bottom: 0.8rem;
-  }
-  .q-num {
-    font-size: 0.62rem;
-    font-weight: 700;
-    color: var(--cherry);
-    letter-spacing: 0.08em;
-    min-width: 22px;
-    padding-top: 2px;
-  }
-  .q-body { flex: 1; }
-  .q-text {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--ink);
-    line-height: 1.45;
-    margin-bottom: 0.2rem;
-  }
-  .q-tag {
-    display: inline-block;
-    font-size: 0.57rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--cherry);
-    border: 1px solid rgba(139,4,53,0.3);
-    border-radius: 3px;
-    padding: 0.1rem 0.35rem;
-    margin-left: 0.4rem;
-    vertical-align: middle;
-    font-weight: 600;
-  }
-  .q-hint {
-    font-size: 0.76rem;
-    color: var(--muted);
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.5;
-  }
-
-  /* CHIPS */
-  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.7rem; }
-  .chip {
-    padding: 0.3rem 0.85rem;
-    border-radius: 20px;
-    border: 1.5px solid var(--border-dark);
-    font-size: 0.74rem;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.18s;
-    font-weight: 400;
-    font-family: 'Mulish', sans-serif;
-    user-select: none;
-  }
-  .chip:hover { border-color: var(--cherry); color: var(--cherry); }
-  .chip.selected {
-    background: var(--cherry);
-    border-color: var(--cherry);
-    color: white;
-    font-weight: 500;
-  }
-
-  /* TEXTAREA */
-  textarea {
-    width: 100%;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    font-family: 'Mulish', sans-serif;
-    font-size: 0.82rem;
-    color: var(--ink);
-    resize: none;
-    outline: none;
-    transition: border-color 0.2s;
-    line-height: 1.6;
-    font-weight: 300;
-  }
-  textarea::placeholder { color: var(--muted-light); font-style: italic; }
-  textarea:focus { border-color: var(--cherry); }
-
-  /* SCALE */
-  .scale-group { margin-bottom: 0.8rem; }
-  .scale-label { font-size: 0.76rem; font-weight: 500; color: var(--ink); margin-bottom: 0.35rem; }
-  .scale-btns { display: flex; gap: 0.35rem; }
-  .scale-btn {
-    flex: 1;
-    height: 34px;
-    border-radius: 6px;
-    border: 1.5px solid var(--border-dark);
-    background: transparent;
-    font-family: 'Mulish', sans-serif;
-    font-size: 0.8rem;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.18s;
-    font-weight: 500;
-  }
-  .scale-btn:hover { border-color: var(--cherry); color: var(--cherry); }
-  .scale-btn.active { background: var(--cherry); border-color: var(--cherry); color: white; }
-  .scale-ends { display: flex; justify-content: space-between; font-size: 0.64rem; color: var(--muted-light); font-style: italic; margin-top: 0.25rem; }
-
-  /* FOOTER NAV */
-  .nav-outer {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(250,250,248,0.95);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid var(--border);
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav-btn {
-    padding: 0.65rem 1.4rem;
-    border-radius: 8px;
-    border: 1.5px solid var(--border-dark);
-    background: transparent;
-    font-family: 'Mulish', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--ink);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .nav-btn:hover:not(:disabled) { border-color: var(--cherry); color: var(--cherry); }
-  .nav-btn:disabled { opacity: 0.3; pointer-events: none; }
-  .nav-btn.primary {
-    background: var(--cherry);
-    border-color: var(--cherry);
-    color: white;
-  }
-  .nav-btn.primary:hover { background: #6E0329; border-color: #6E0329; color: white; }
-
-  .nav-mid { text-align: center; }
-  .nav-sec { font-size: 0.65rem; color: var(--cherry); font-weight: 600; letter-spacing: 0.08em; margin-bottom: 0.15rem; }
-  .nav-count { font-size: 0.7rem; color: var(--muted); }
-
-  /* SUMMARY */
-  #summary-view {
-    display: none;
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
-    animation: fadeIn 0.4s ease forwards;
-  }
-  .sum-head {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .sum-head h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
-  }
-  .sum-head p { font-size: 0.8rem; color: var(--muted); font-weight: 300; }
-
-  .sum-section {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
-  .sum-sec-title {
-    background: var(--cherry);
-    color: white;
-    padding: 0.7rem 1.2rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  .sum-row {
-    display: flex;
-    gap: 1rem;
-    padding: 0.9rem 1.2rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .sum-row:last-child { border-bottom: none; }
-  .sum-q { font-size: 0.78rem; color: var(--muted); flex: 1; line-height: 1.5; font-weight: 400; }
-  .sum-a { font-size: 0.78rem; color: var(--ink); flex: 1.2; line-height: 1.6; font-weight: 300; font-style: italic; }
-  .sum-a.empty { color: var(--muted-light); }
-
-  .export-btn {
-    display: block;
-    width: 100%;
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background: var(--cherry);
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-family: 'Mulish', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-    letter-spacing: 0.05em;
-  }
-  .export-btn:hover { background: #6E0329; }
-
-  /* DIVIDER */
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    margin: 1.5rem 0 1rem;
-  }
-  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .divider span { font-size: 0.62rem; color: var(--muted-light); letter-spacing: 0.12em; text-transform: uppercase; }
-
-  @media (max-width: 500px) {
-    h1 { font-size: 1.7rem; }
-    .header-inner { gap: 1rem; }
-    .sec-num { font-size: 3rem; }
-    .nav-btn { padding: 0.55rem 0.9rem; font-size: 0.75rem; }
-    .info-bar-inner { gap: 1rem; }
-  }
-
-  @media print {
-    .nav-outer, .tabs-outer, .progress-wrap-outer, #summary-view, .export-btn { display: none !important; }
-    header { border-bottom: 2px solid var(--cherry) !important; }
-    .section-block { display: block !important; page-break-before: always; }
-    .section-block:first-child { page-break-before: avoid; }
-    .question { page-break-inside: avoid; border: 1px solid #ddd !important; }
-    body { background: white; }
-  }
+@media print {
+.nav-outer, .tabs-outer, .progress-wrap-outer, #summary-view, .export-btn { display: none !important; }
+header { border-bottom: 2px solid var(–cherry) !important; }
+.section-block { display: block !important; page-break-before: always; }
+.section-block:first-child { page-break-before: avoid; }
+.question { page-break-inside: avoid; border: 1px solid #ddd !important; }
+body { background: white; }
+}
 </style>
+
 </head>
 <body>
 
 <!-- HEADER -->
+
 <header>
   <div class="header-top"></div>
   <div class="header-inner">
-   <div class="logo-area">
-     <img
-       src="https://raw.githubusercontent.com/Inothebrand/Onboarding/refs/heads/main/Logo.svg"
-       alt="Logo Inès Ouajib"
-       class="logo-svg"
-     >
-   </div>
+    <div class="logo-area">
+      <img src="https://raw.githubusercontent.com/Inothebrand/Onboarding/refs/heads/main/Logo.svg" alt="Logo Inès Ouajib" class="logo-svg">
+    </div>
     <div class="header-text">
       <div class="header-eyebrow">Inès Ouajib · Community Management</div>
       <h1>Brief <em>Client</em></h1>
       <p class="header-sub">Questionnaire d'onboarding · À compléter pendant le rendez-vous</p>
+      <div class="header-contact">
+        <a href="mailto:ines.ouajib@outlook.fr">ines.ouajib@outlook.fr</a>
+        <span class="contact-sep">·</span>
+        <a href="tel:+33624307765">+336 24 30 77 65</a>
+        <span class="contact-sep">·</span>
+        <a href="https://inesouajib.my.canva.site/projets" target="_blank">Mes projets</a>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- INFO BAR -->
-<div class="info-bar">
+<!-- INFO BAR — fond cherry-light, champs éditables -->
+
+<div class="info-bar-outer">
   <div class="info-bar-inner">
     <div class="info-field">
       <span class="info-label">Client</span>
-      <div class="info-line"></div>
+      <input class="info-input" type="text" placeholder="Nom du client...">
     </div>
     <div class="info-field">
       <span class="info-label">Date</span>
-      <div class="info-line"></div>
+      <input class="info-input" type="text" placeholder="jj / mm / aaaa">
     </div>
     <div class="info-field">
       <span class="info-label">Secteur</span>
-      <div class="info-line"></div>
+      <input class="info-input" type="text" placeholder="Beauté, luxe, mode...">
     </div>
   </div>
 </div>
 
 <!-- PROGRESS -->
+
 <div class="progress-wrap-outer">
   <div class="progress-wrap">
     <div class="progress-track">
@@ -594,6 +625,7 @@
 </div>
 
 <!-- TABS -->
+
 <div class="tabs-outer">
   <div class="tabs-inner" id="tabs">
     <button class="tab active" onclick="goSection(0)">① La marque</button>
@@ -606,9 +638,11 @@
 </div>
 
 <!-- MAIN -->
+
 <main id="main-content">
 
 <!-- ① LA MARQUE -->
+
 <div class="section-block active" id="sec-0">
   <div class="sec-head">
     <div class="sec-num">01</div>
@@ -620,72 +654,55 @@
   <div class="note">💡 <strong>Objectif :</strong> Comprendre l'ADN de la marque pour construire un tone of voice juste et une ligne éditoriale cohérente dès le premier post.</div>
 
   <div class="question" id="q1">
-    <div class="q-row">
-      <div class="q-num">Q1</div>
-      <div class="q-body">
-        <div class="q-text">Décrivez votre marque en 3 mots. <span class="q-tag">Clé</span></div>
-        <div class="q-hint">Ex : élégante, accessible, engagée — ces mots guideront tout le ton de communication.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q1</div><div class="q-body">
+      <div class="q-text">Décrivez votre marque en 3 mots. <span class="q-tag">Clé</span></div>
+      <div class="q-hint">Ex : élégante, accessible, engagée — ces mots guideront tout le ton de communication.</div>
+    </div></div>
     <textarea rows="2" placeholder="3 mots ou courtes expressions..." oninput="markAnswered('q1')"></textarea>
   </div>
 
   <div class="question" id="q2">
-    <div class="q-row">
-      <div class="q-num">Q2</div>
-      <div class="q-body">
-        <div class="q-text">Quelle est l'histoire de la marque ? Quand a-t-elle été créée, par qui et pourquoi ?</div>
-        <div class="q-hint">Le storytelling fondateur est une ressource de contenu précieuse.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q2</div><div class="q-body">
+      <div class="q-text">Quelle est l'histoire de la marque ? Quand a-t-elle été créée, par qui et pourquoi ?</div>
+      <div class="q-hint">Le storytelling fondateur est une ressource de contenu précieuse.</div>
+    </div></div>
     <textarea rows="3" placeholder="Fondateur(s), date, mission d'origine..." oninput="markAnswered('q2')"></textarea>
   </div>
 
   <div class="question" id="q3">
-    <div class="q-row">
-      <div class="q-num">Q3</div>
-      <div class="q-body">
-        <div class="q-text">Quelles sont vos valeurs fondamentales ? <span class="q-tag">Clé</span></div>
-        <div class="q-hint">Ces valeurs doivent transparaître dans chaque publication.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q3</div><div class="q-body">
+      <div class="q-text">Quelles sont vos valeurs fondamentales ? <span class="q-tag">Clé</span></div>
+      <div class="q-hint">Ces valeurs doivent transparaître dans chaque publication.</div>
+    </div></div>
     <textarea rows="2" placeholder="Ex : durabilité, artisanat, innovation, inclusivité..." oninput="markAnswered('q3')"></textarea>
   </div>
 
   <div class="question" id="q4">
-    <div class="q-row">
-      <div class="q-num">Q4</div>
-      <div class="q-body">
-        <div class="q-text">Quels sont vos produits / services phares ?</div>
-        <div class="q-hint">Ce qui génère le plus de revenus ou ce que vous voulez mettre en avant en priorité.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q4</div><div class="q-body">
+      <div class="q-text">Quels sont vos produits / services phares ?</div>
+      <div class="q-hint">Ce qui génère le plus de revenus ou ce que vous voulez mettre en avant en priorité.</div>
+    </div></div>
     <textarea rows="2" placeholder="Produits, services, collections, gammes..." oninput="markAnswered('q4')"></textarea>
   </div>
 
   <div class="question" id="q5">
-    <div class="q-row">
-      <div class="q-num">Q5</div>
-      <div class="q-body">
-        <div class="q-text">Qui sont vos principaux concurrents ? Qu'est-ce qui vous différencie d'eux ?</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q5</div><div class="q-body">
+      <div class="q-text">Qui sont vos principaux concurrents ? Qu'est-ce qui vous différencie d'eux ?</div>
+    </div></div>
     <textarea rows="3" placeholder="Noms des concurrents + votre avantage différenciant..." oninput="markAnswered('q5')"></textarea>
   </div>
 
   <div class="question" id="q6">
-    <div class="q-row">
-      <div class="q-num">Q6</div>
-      <div class="q-body">
-        <div class="q-text">Y a-t-il des marques dont vous aimez la communication sur les réseaux ? <span class="q-tag">Inspiration</span></div>
-        <div class="q-hint">Que ce soit dans votre secteur ou non — cela donne une direction visuelle et éditoriale.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q6</div><div class="q-body">
+      <div class="q-text">Y a-t-il des marques dont vous aimez la communication sur les réseaux ? <span class="q-tag">Inspiration</span></div>
+      <div class="q-hint">Que ce soit dans votre secteur ou non — cela donne une direction visuelle et éditoriale.</div>
+    </div></div>
     <textarea rows="2" placeholder="Noms de marques + ce que vous aimez chez elles..." oninput="markAnswered('q6')"></textarea>
   </div>
 </div>
 
 <!-- ② AUDIENCE -->
+
 <div class="section-block" id="sec-1">
   <div class="sec-head">
     <div class="sec-num">02</div>
@@ -697,24 +714,18 @@
   <div class="note">💡 <strong>Objectif :</strong> Définir précisément à qui on parle. Un contenu destiné à tout le monde ne touche personne.</div>
 
   <div class="question" id="q7">
-    <div class="q-row">
-      <div class="q-num">Q7</div>
-      <div class="q-body">
-        <div class="q-text">Quel est le profil de votre client idéal ? <span class="q-tag">Clé</span></div>
-        <div class="q-hint">Âge, genre, situation professionnelle, pouvoir d'achat, style de vie...</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q7</div><div class="q-body">
+      <div class="q-text">Quel est le profil de votre client idéal ? <span class="q-tag">Clé</span></div>
+      <div class="q-hint">Âge, genre, situation professionnelle, pouvoir d'achat, style de vie...</div>
+    </div></div>
     <textarea rows="3" placeholder="Ex : femmes 28-45 ans, CSP+, sensibles aux produits naturels, actives sur Instagram..." oninput="markAnswered('q7')"></textarea>
   </div>
 
   <div class="question" id="q8">
-    <div class="q-row">
-      <div class="q-num">Q8</div>
-      <div class="q-body">
-        <div class="q-text">Où est géographiquement votre clientèle principale ?</div>
-        <div class="q-hint">Cela impacte la langue, les horaires de publication et les références culturelles.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q8</div><div class="q-body">
+      <div class="q-text">Où est géographiquement votre clientèle principale ?</div>
+      <div class="q-hint">Cela impacte la langue, les horaires de publication et les références culturelles.</div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q8')">Suisse romande</div>
       <div class="chip" onclick="toggleChip(this,'q8')">Suisse alémanique</div>
@@ -727,12 +738,9 @@
   </div>
 
   <div class="question" id="q9">
-    <div class="q-row">
-      <div class="q-num">Q9</div>
-      <div class="q-body">
-        <div class="q-text">Dans quelle(s) langue(s) souhaitez-vous communiquer ?</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q9</div><div class="q-body">
+      <div class="q-text">Dans quelle(s) langue(s) souhaitez-vous communiquer ?</div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q9')">Français</div>
       <div class="chip" onclick="toggleChip(this,'q9')">Anglais</div>
@@ -743,29 +751,24 @@
   </div>
 
   <div class="question" id="q10">
-    <div class="q-row">
-      <div class="q-num">Q10</div>
-      <div class="q-body">
-        <div class="q-text">Quels problèmes ou désirs votre client cherche-t-il à satisfaire en vous choisissant ? <span class="q-tag">Clé</span></div>
-        <div class="q-hint">Cette réponse guide la création de contenu à valeur ajoutée.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q10</div><div class="q-body">
+      <div class="q-text">Quels problèmes ou désirs votre client cherche-t-il à satisfaire en vous choisissant ? <span class="q-tag">Clé</span></div>
+      <div class="q-hint">Cette réponse guide la création de contenu à valeur ajoutée.</div>
+    </div></div>
     <textarea rows="3" placeholder="Ex : se sentir belle sans culpabilité, gagner en confiance, s'offrir un moment de luxe accessible..." oninput="markAnswered('q10')"></textarea>
   </div>
 
   <div class="question" id="q11">
-    <div class="q-row">
-      <div class="q-num">Q11</div>
-      <div class="q-body">
-        <div class="q-text">Avez-vous déjà une communauté existante (abonnés, clients fidèles, groupes) ?</div>
-        <div class="q-hint">Newsletter, groupe Facebook, programme fidélité... tout est pertinent.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q11</div><div class="q-body">
+      <div class="q-text">Avez-vous déjà une communauté existante (abonnés, clients fidèles, groupes) ?</div>
+      <div class="q-hint">Newsletter, groupe Facebook, programme fidélité... tout est pertinent.</div>
+    </div></div>
     <textarea rows="2" placeholder="Taille approximative, canaux, niveau d'engagement actuel..." oninput="markAnswered('q11')"></textarea>
   </div>
 </div>
 
 <!-- ③ RÉSEAUX -->
+
 <div class="section-block" id="sec-2">
   <div class="sec-head">
     <div class="sec-num">03</div>
@@ -777,12 +780,9 @@
   <div class="note">💡 <strong>Objectif :</strong> Faire l'état des lieux de l'existant avant de définir la stratégie. Ne jamais partir de zéro sans savoir ce qui a été fait.</div>
 
   <div class="question" id="q12">
-    <div class="q-row">
-      <div class="q-num">Q12</div>
-      <div class="q-body">
-        <div class="q-text">Sur quels réseaux êtes-vous déjà présent(e) ? <span class="q-tag">Clé</span></div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q12</div><div class="q-body">
+      <div class="q-text">Sur quels réseaux êtes-vous déjà présent(e) ? <span class="q-tag">Clé</span></div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q12')">Instagram</div>
       <div class="chip" onclick="toggleChip(this,'q12')">Facebook</div>
@@ -796,34 +796,25 @@
   </div>
 
   <div class="question" id="q13">
-    <div class="q-row">
-      <div class="q-num">Q13</div>
-      <div class="q-body">
-        <div class="q-text">Quelle est votre fréquence de publication actuelle ? Qui gère les réseaux aujourd'hui ?</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q13</div><div class="q-body">
+      <div class="q-text">Quelle est votre fréquence de publication actuelle ? Qui gère les réseaux aujourd'hui ?</div>
+    </div></div>
     <textarea rows="2" placeholder="Ex : 1 post/semaine, géré par le fondateur, irrégulier..." oninput="markAnswered('q13')"></textarea>
   </div>
 
   <div class="question" id="q14">
-    <div class="q-row">
-      <div class="q-num">Q14</div>
-      <div class="q-body">
-        <div class="q-text">Y a-t-il des publications qui ont particulièrement bien ou mal fonctionné par le passé ?</div>
-        <div class="q-hint">Ce retour d'expérience est précieux pour ne pas répéter les erreurs.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q14</div><div class="q-body">
+      <div class="q-text">Y a-t-il des publications qui ont particulièrement bien ou mal fonctionné par le passé ?</div>
+      <div class="q-hint">Ce retour d'expérience est précieux pour ne pas répéter les erreurs.</div>
+    </div></div>
     <textarea rows="3" placeholder="Ce qui a bien marché / mal marché + pourquoi selon vous..." oninput="markAnswered('q14')"></textarea>
   </div>
 
   <div class="question" id="q15">
-    <div class="q-row">
-      <div class="q-num">Q15</div>
-      <div class="q-body">
-        <div class="q-text">Sur quels réseaux voulez-vous concentrer nos efforts ? <span class="q-tag">Clé</span></div>
-        <div class="q-hint">Je recommande 2 plateformes max pour commencer efficacement.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q15</div><div class="q-body">
+      <div class="q-text">Sur quels réseaux voulez-vous concentrer nos efforts ? <span class="q-tag">Clé</span></div>
+      <div class="q-hint">Je recommande 2 plateformes max pour commencer efficacement.</div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q15')">Instagram prioritaire</div>
       <div class="chip" onclick="toggleChip(this,'q15')">LinkedIn prioritaire</div>
@@ -835,6 +826,7 @@
 </div>
 
 <!-- ④ CONTENU -->
+
 <div class="section-block" id="sec-3">
   <div class="sec-head">
     <div class="sec-num">04</div>
@@ -846,12 +838,9 @@
   <div class="note">💡 <strong>Objectif :</strong> Cadrer l'univers graphique et éditorial pour une ligne cohérente dès le premier post.</div>
 
   <div class="question" id="q16">
-    <div class="q-row">
-      <div class="q-num">Q16</div>
-      <div class="q-body">
-        <div class="q-text">Avez-vous une charte graphique existante ? (couleurs, polices, logo) <span class="q-tag">Clé</span></div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q16</div><div class="q-body">
+      <div class="q-text">Avez-vous une charte graphique existante ? (couleurs, polices, logo) <span class="q-tag">Clé</span></div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q16')">Oui, complète</div>
       <div class="chip" onclick="toggleChip(this,'q16')">Oui, partielle</div>
@@ -862,13 +851,10 @@
   </div>
 
   <div class="question" id="q17">
-    <div class="q-row">
-      <div class="q-num">Q17</div>
-      <div class="q-body">
-        <div class="q-text">De quelles ressources visuelles disposez-vous ? <span class="q-tag">Clé</span></div>
-        <div class="q-hint">Photos pro, vidéos, shooting produits, contenu UGC (clients)...</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q17</div><div class="q-body">
+      <div class="q-text">De quelles ressources visuelles disposez-vous ? <span class="q-tag">Clé</span></div>
+      <div class="q-hint">Photos pro, vidéos, shooting produits, contenu UGC (clients)...</div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q17')">Photos pro disponibles</div>
       <div class="chip" onclick="toggleChip(this,'q17')">Vidéos disponibles</div>
@@ -880,12 +866,9 @@
   </div>
 
   <div class="question" id="q18">
-    <div class="q-row">
-      <div class="q-num">Q18</div>
-      <div class="q-body">
-        <div class="q-text">Comment décririez-vous le ton idéal de votre communication ? <span class="q-tag">Clé</span></div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q18</div><div class="q-body">
+      <div class="q-text">Comment décririez-vous le ton idéal de votre communication ? <span class="q-tag">Clé</span></div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q18')">Inspirant & aspirationnel</div>
       <div class="chip" onclick="toggleChip(this,'q18')">Chaleureux & proche</div>
@@ -898,29 +881,24 @@
   </div>
 
   <div class="question" id="q19">
-    <div class="q-row">
-      <div class="q-num">Q19</div>
-      <div class="q-body">
-        <div class="q-text">Y a-t-il des sujets ou visuels à éviter absolument ?</div>
-        <div class="q-hint">Sujets sensibles, concurrents à ne pas mentionner, codes visuels à bannir...</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q19</div><div class="q-body">
+      <div class="q-text">Y a-t-il des sujets ou visuels à éviter absolument ?</div>
+      <div class="q-hint">Sujets sensibles, concurrents à ne pas mentionner, codes visuels à bannir...</div>
+    </div></div>
     <textarea rows="2" placeholder="Sujets, images, expressions à ne jamais utiliser..." oninput="markAnswered('q19')"></textarea>
   </div>
 
   <div class="question" id="q20">
-    <div class="q-row">
-      <div class="q-num">Q20</div>
-      <div class="q-body">
-        <div class="q-text">Y a-t-il des événements, dates clés ou temps forts à intégrer dans le planning ?</div>
-        <div class="q-hint">Lancements, salons, soldes, fêtes culturelles, anniversaire de la marque...</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q20</div><div class="q-body">
+      <div class="q-text">Y a-t-il des événements, dates clés ou temps forts à intégrer dans le planning ?</div>
+      <div class="q-hint">Lancements, salons, soldes, fêtes culturelles, anniversaire de la marque...</div>
+    </div></div>
     <textarea rows="2" placeholder="Dates importantes pour la marque..." oninput="markAnswered('q20')"></textarea>
   </div>
 </div>
 
 <!-- ⑤ OBJECTIFS -->
+
 <div class="section-block" id="sec-4">
   <div class="sec-head">
     <div class="sec-num">05</div>
@@ -932,12 +910,9 @@
   <div class="note">💡 <strong>Objectif :</strong> Aligner les attentes dès le départ pour éviter toute déception. Ce que vous mesurez, vous le gérez.</div>
 
   <div class="question" id="q21">
-    <div class="q-row">
-      <div class="q-num">Q21</div>
-      <div class="q-body">
-        <div class="q-text">Quel est votre objectif principal sur les réseaux sociaux ? <span class="q-tag">Clé</span></div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q21</div><div class="q-body">
+      <div class="q-text">Quel est votre objectif principal sur les réseaux sociaux ? <span class="q-tag">Clé</span></div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q21')">Gagner en visibilité / notoriété</div>
       <div class="chip" onclick="toggleChip(this,'q21')">Développer ma communauté</div>
@@ -949,23 +924,17 @@
   </div>
 
   <div class="question" id="q22">
-    <div class="q-row">
-      <div class="q-num">Q22</div>
-      <div class="q-body">
-        <div class="q-text">Dans 6 mois, comment saurez-vous que la collaboration a été un succès ? <span class="q-tag">Clé</span></div>
-        <div class="q-hint">Cette question révèle leurs vraies priorités — parfois différentes de Q21.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q22</div><div class="q-body">
+      <div class="q-text">Dans 6 mois, comment saurez-vous que la collaboration a été un succès ? <span class="q-tag">Clé</span></div>
+      <div class="q-hint">Cette question révèle leurs vraies priorités — parfois différentes de Q21.</div>
+    </div></div>
     <textarea rows="3" placeholder="Indicateurs concrets de succès selon le client..." oninput="markAnswered('q22')"></textarea>
   </div>
 
   <div class="question" id="q23">
-    <div class="q-row">
-      <div class="q-num">Q23</div>
-      <div class="q-body">
-        <div class="q-text">Quelle importance accordez-vous aux KPIs suivants ? (1 = peu important → 5 = essentiel)</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q23</div><div class="q-body">
+      <div class="q-text">Quelle importance accordez-vous aux KPIs suivants ? (1 = peu important → 5 = essentiel)</div>
+    </div></div>
     <div class="scale-group">
       <div class="scale-label">Croissance des abonnés</div>
       <div class="scale-btns">
@@ -1002,18 +971,16 @@
   </div>
 
   <div class="question" id="q24">
-    <div class="q-row">
-      <div class="q-num">Q24</div>
-      <div class="q-body">
-        <div class="q-text">Avez-vous déjà travaillé avec un(e) CM ou une agence ? Pourquoi cela s'est-il arrêté ?</div>
-        <div class="q-hint">Comprendre les expériences passées évite de répéter les erreurs.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q24</div><div class="q-body">
+      <div class="q-text">Avez-vous déjà travaillé avec un(e) CM ou une agence ? Pourquoi cela s'est-il arrêté ?</div>
+      <div class="q-hint">Comprendre les expériences passées évite de répéter les erreurs.</div>
+    </div></div>
     <textarea rows="3" placeholder="Expériences précédentes, points de friction, raisons de la fin de collaboration..." oninput="markAnswered('q24')"></textarea>
   </div>
 </div>
 
 <!-- ⑥ PRATIQUE -->
+
 <div class="section-block" id="sec-5">
   <div class="sec-head">
     <div class="sec-num">06</div>
@@ -1025,13 +992,10 @@
   <div class="note">💡 <strong>Objectif :</strong> Cadrer l'organisation de travail et vérifier l'alignement budget. Aborder cette section avec confiance — c'est une conversation normale et nécessaire.</div>
 
   <div class="question" id="q25">
-    <div class="q-row">
-      <div class="q-num">Q25</div>
-      <div class="q-body">
-        <div class="q-text">Quel est votre budget mensuel dédié à la gestion des réseaux sociaux ? <span class="q-tag">Clé</span></div>
-        <div class="q-hint">Être transparent sur le budget permet de proposer l'offre la plus adaptée.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q25</div><div class="q-body">
+      <div class="q-text">Quel est votre budget mensuel dédié à la gestion des réseaux sociaux ? <span class="q-tag">Clé</span></div>
+      <div class="q-hint">Être transparent sur le budget permet de proposer l'offre la plus adaptée.</div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q25')">&lt; 500 CHF/mois</div>
       <div class="chip" onclick="toggleChip(this,'q25')">500 – 1 000 CHF</div>
@@ -1043,12 +1007,9 @@
   </div>
 
   <div class="question" id="q26">
-    <div class="q-row">
-      <div class="q-num">Q26</div>
-      <div class="q-body">
-        <div class="q-text">Y a-t-il un budget séparé pour la création de contenu (photo/vidéo pro) et/ou la publicité payante ?</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q26</div><div class="q-body">
+      <div class="q-text">Y a-t-il un budget séparé pour la création de contenu (photo/vidéo pro) et/ou la publicité payante ?</div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q26')">Oui, shooting prévu</div>
       <div class="chip" onclick="toggleChip(this,'q26')">Oui, budget ads</div>
@@ -1058,13 +1019,10 @@
   </div>
 
   <div class="question" id="q27">
-    <div class="q-row">
-      <div class="q-num">Q27</div>
-      <div class="q-body">
-        <div class="q-text">Comment souhaitez-vous valider le contenu avant publication ? <span class="q-tag">Clé</span></div>
-        <div class="q-hint">Définir le workflow de validation évite les allers-retours interminables.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q27</div><div class="q-body">
+      <div class="q-text">Comment souhaitez-vous valider le contenu avant publication ? <span class="q-tag">Clé</span></div>
+      <div class="q-hint">Définir le workflow de validation évite les allers-retours interminables.</div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q27')">Validation de chaque post</div>
       <div class="chip" onclick="toggleChip(this,'q27')">Validation du planning mensuel</div>
@@ -1074,12 +1032,9 @@
   </div>
 
   <div class="question" id="q28">
-    <div class="q-row">
-      <div class="q-num">Q28</div>
-      <div class="q-body">
-        <div class="q-text">Quel est votre canal de communication préféré et vos disponibilités ?</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q28</div><div class="q-body">
+      <div class="q-text">Quel est votre canal de communication préféré et vos disponibilités ?</div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q28')">Email</div>
       <div class="chip" onclick="toggleChip(this,'q28')">WhatsApp</div>
@@ -1091,12 +1046,9 @@
   </div>
 
   <div class="question" id="q29">
-    <div class="q-row">
-      <div class="q-num">Q29</div>
-      <div class="q-body">
-        <div class="q-text">Quand souhaitez-vous démarrer et quel est votre horizon de collaboration ? <span class="q-tag">Clé</span></div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q29</div><div class="q-body">
+      <div class="q-text">Quand souhaitez-vous démarrer et quel est votre horizon de collaboration ? <span class="q-tag">Clé</span></div>
+    </div></div>
     <div class="chips">
       <div class="chip" onclick="toggleChip(this,'q29')">Dès que possible</div>
       <div class="chip" onclick="toggleChip(this,'q29')">Dans 2–4 semaines</div>
@@ -1108,13 +1060,10 @@
   </div>
 
   <div class="question" id="q30">
-    <div class="q-row">
-      <div class="q-num">Q30</div>
-      <div class="q-body">
-        <div class="q-text">Y a-t-il autre chose d'important à savoir sur votre marque ou vos attentes ?</div>
-        <div class="q-hint">Laissez le client finir — les informations les plus précieuses viennent souvent à la fin.</div>
-      </div>
-    </div>
+    <div class="q-row"><div class="q-num">Q30</div><div class="q-body">
+      <div class="q-text">Y a-t-il autre chose d'important à savoir sur votre marque ou vos attentes ?</div>
+      <div class="q-hint">Laissez le client finir — les informations les plus précieuses viennent souvent à la fin.</div>
+    </div></div>
     <textarea rows="4" placeholder="Notes libres, préoccupations, informations complémentaires..." oninput="markAnswered('q30')"></textarea>
   </div>
 </div>
@@ -1122,9 +1071,10 @@
 </main>
 
 <!-- SUMMARY -->
+
 <div id="summary-view">
   <div class="sum-head">
-    <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cherry);font-weight:600;margin-bottom:0.6rem;">✓ Questionnaire complété</div>
+    <div style="font-family:'League Spartan',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cherry);font-weight:700;margin-bottom:0.6rem;">✓ Questionnaire complété</div>
     <h2>Récapitulatif du Brief</h2>
     <p>Vos notes du rendez-vous — à conserver pour rédiger la proposition commerciale</p>
   </div>
@@ -1133,6 +1083,7 @@
 </div>
 
 <!-- FOOTER NAV -->
+
 <div class="nav-outer">
   <div class="nav-inner">
     <button class="nav-btn" id="btn-prev" onclick="navigate(-1)" disabled>← Retour</button>
@@ -1149,10 +1100,9 @@ let cur = 0;
 const total = 6;
 const secNames = ["La marque & son univers","Votre audience idéale","Présence sur les réseaux","Contenu & identité visuelle","Objectifs & attentes","Aspects pratiques & budget"];
 const secTags = ["Identité","Cible","Plateformes","Éditorial","Résultats","Organisation"];
-
 const qData = {
   0:[{id:'q1',l:'3 mots qui définissent la marque'},{id:'q2',l:'Histoire & origine'},{id:'q3',l:'Valeurs fondamentales'},{id:'q4',l:'Produits / services phares'},{id:'q5',l:'Concurrents & différenciation'},{id:'q6',l:'Inspirations communication'}],
-  1:[{id:'q7',l:'Profil du client idéal'},{id:'q8',l:'Zone géographique'},{id:'q9',l:'Langues de communication'},{id:'q10',l:'Problèmes / désirs de l\'audience'},{id:'q11',l:'Communauté existante'}],
+  1:[{id:'q7',l:'Profil du client idéal'},{id:'q8',l:'Zone géographique'},{id:'q9',l:'Langues de communication'},{id:'q10',l:"Problèmes / désirs de l'audience"},{id:'q11',l:'Communauté existante'}],
   2:[{id:'q12',l:'Réseaux actuels & handles'},{id:'q13',l:'Fréquence & gestion actuelle'},{id:'q14',l:'Ce qui a marché / pas marché'},{id:'q15',l:'Réseaux prioritaires'}],
   3:[{id:'q16',l:'Charte graphique existante'},{id:'q17',l:'Ressources visuelles disponibles'},{id:'q18',l:'Ton de communication idéal'},{id:'q19',l:'Sujets / visuels à éviter'},{id:'q20',l:'Dates clés & temps forts'}],
   4:[{id:'q21',l:'Objectif principal'},{id:'q22',l:'Définition du succès à 6 mois'},{id:'q23',l:'Importance des KPIs'},{id:'q24',l:'Expériences passées avec un CM'}],
@@ -1249,7 +1199,6 @@ function showSummary() {
     prev.onclick=()=>navigate(-1);
     goSection(5);
   };
-
   let html='';
   for(let s=0;s<total;s++){
     html+=`<div class="sum-section"><div class="sum-sec-title">${secTags[s]} — ${secNames[s]}</div>`;
@@ -1265,5 +1214,6 @@ function showSummary() {
 
 updateUI();
 </script>
+
 </body>
 </html>
